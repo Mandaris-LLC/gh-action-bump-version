@@ -206,7 +206,7 @@ const pkg = getPackageJson();
     try {
       // to support "actions/checkout@v1"
       if (process.env['INPUT_SKIP-COMMIT'] !== 'true') {
-        await runInWorkspace('git', ['commit', '-a', '-m', commitMessage.replace(/{{version}}/g, newVersion)]);
+        await runInWorkspace('git', ['commit', 'package.json', '-a', '-m', commitMessage.replace(/{{version}}/g, newVersion)]);
       }
     } catch (e) {
       console.warn(
